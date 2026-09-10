@@ -11,7 +11,7 @@
 	</parent>
 
 	<groupId>in.mortgage-admindao</groupId>
-	<artifactId>admin-dao-${release}</artifactId>
+	<artifactId>admin-dao</artifactId>
 	<version>${revision}</version>
     <packaging>jar</packaging>
 
@@ -28,12 +28,20 @@
         <jjwt.version>0.12.1</jjwt.version>
         <log4j2.version>2.24.3</log4j2.version>
         <release>sep2026</release>
-        <revision>1.0.0</revision>
+        <revision>1.0.0-${release}</revision>
         <lomok.version>1.18.38</lomok.version>
 	</properties>
 
 
 	<dependencies>
+
+
+        <dependency>
+            <groupId>in.mortgage-auth-util</groupId>
+            <artifactId>auth-dao</artifactId>
+            <version>1.0.0-sep2026</version>
+        </dependency>
+
         <!-- actuator -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -74,6 +82,7 @@
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-impl</artifactId>
             <version>${jjwt.version}</version>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- Jackson integration -->
@@ -81,6 +90,7 @@
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-jackson</artifactId>
             <version>${jjwt.version}</version>
+            <scope>runtime</scope>
         </dependency>
 
 		<dependency>

@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: ADMIN-SERVICE
+
+server:
+  port: 8081
+
+# logging
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+
+  pattern:
+    console: "%d{yyyy-MM-DD HH:mm:ss} [%level] %X{TRACEID} [%logger{36}] %msg%n"
