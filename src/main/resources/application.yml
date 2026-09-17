@@ -2,6 +2,34 @@ spring:
   application:
     name: ADMIN-SERVICE
 
+  # datasource & DB configs
+  datasource:
+    url: jdbc:mysql://localhost:3306/mortgage
+    username: root
+    password: Pkswain@123
+
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 10
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      pool-name: MortgagePool
+
+
+
+# Actuator dependency
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    jmx:
+      exposure:
+        include: "*"
+
+
+
 server:
   port: 8081
 
@@ -9,7 +37,7 @@ server:
 logging:
   level:
     root: INFO
-    org.springframework: INFO
+    org.springframework: DEBUG
 
   pattern:
     console: "%d{yyyy-MM-DD HH:mm:ss} [%level] %X{TRACEID} [%logger{36}] %msg%n"
